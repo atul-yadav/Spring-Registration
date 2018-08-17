@@ -40,5 +40,9 @@
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	<!--  
+	<bean id = " validator" class = " com.jda.user.validator.UserValidation" />
+	-->
+	
 	
 </beans>

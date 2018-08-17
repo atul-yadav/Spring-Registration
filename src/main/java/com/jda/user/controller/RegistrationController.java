@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jda.user.model.User;
 import com.jda.user.service.UserService;
+
 @Controller
 public class RegistrationController {
  
@@ -34,3 +35,24 @@ public class RegistrationController {
   
   
 }
+  
+  /*
+  
+  @RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
+  public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
+  @ModelAttribute("user") User user) {
+		 // @ModelAttribute("user") User user,BindingResult result) {
+	  userService.register(user);
+	 
+	  validator.validate(user, result);
+		 if(result.hasErrors()){
+			 return new ModelAndView("register"); 
+		 }
+		 
+  return new ModelAndView("welcome", "name", user.getName());
+  }
+  */
+  
+ 
+
+

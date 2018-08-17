@@ -6,46 +6,46 @@
             <title>Registration</title>
         </head>
         <body>
-            <form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
+            <form id="regForm" modelAttribute="user" action="registerProcess" method="post">
                 <table align="center">
                     <tr>
+                       <td>
+                            <label >Username</label>
+                        </td> 
                         <td>
-                            <form:label path="username">Username</form:label>
-                        </td>
-                        <td>
-                            <form:input path="username" name="username" id="username" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form:label path="password">Password</form:label>
-                        </td>
-                        <td>
-                            <form:password path="password" name="password" id="password" />
+                            <input  name="username" id="username" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <form:label path="name">Name</form:label>
+                            <label>Password</label>
                         </td>
                         <td>
-                            <form:input path="name" name="name" id="name" />
+                            <input name="password" id="password" />
                         </td>
                     </tr>
-                    
                     <tr>
-                        <tr>
                         <td>
-                            <form:label path="mobile">Mobile</form:label>
+                            <label>Name</label>
                         </td>
                         <td>
-                            <form:input path="mobile" name="mobile" id="mobile" />
+                            <input name="name" id="name" />
+                        </td>
+                    </tr>
+               
+                   
+                    <tr>
+                        <td>
+                            <label>Mobile</label>
+                        </td>
+                        <td>
+                            <input name="mobile" id="mobile" />
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <form:button id="register" name="register">Register</form:button>
+                            <button id="register" name="register">Register<button>
                         </td>
                     </tr>
                     <tr></tr>
@@ -55,6 +55,6 @@
                         </td>
                     </tr>
                 </table>
-            </form:form>
+            </form>
         </body>
         </html>
