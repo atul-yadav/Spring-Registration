@@ -2,6 +2,7 @@ package com.jda.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,10 @@ public class LoginController {
 	    ModelAndView mav = null;
 	    User user = userService.validateUser(login);
 	    if (null != user) {
+	   	 HttpSession session = request.getSession(false);
+	   		System.out.println(user.getName());
+	   	 session.setAttribute("name", user.getName());
+	    mav = new ModelAndView("redirect:/welcome");
 	    mav = new ModelAndView("welcome");
 	    mav.addObject("name", user.getName());
 	    } else {
