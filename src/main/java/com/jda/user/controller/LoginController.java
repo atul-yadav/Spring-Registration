@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,8 +20,10 @@ public class LoginController {
 	
 	 @Autowired
 	  UserService userService;
+	 final static Logger logger = Logger.getLogger(LoginController.class);
 	
 	  @RequestMapping(value = "/")
+	 
 
 	  public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 	    ModelAndView mav = new ModelAndView("login");
@@ -36,10 +39,14 @@ public class LoginController {
 	    if (null != user) {
 	   	 HttpSession session = request.getSession(false);
 	   		System.out.println(user.getName());
+	   		if(logger.isDebugEnabled()){
+	   			logger.debug("This is debug : **********************" + user);
+	   		}
 	   	 session.setAttribute("name", user.getName());
 	    mav = new ModelAndView("redirect:/welcome");
 	    mav = new ModelAndView("welcome");
 	    mav.addObject("name", user.getName());
+	    
 	    } else {
 	    mav = new ModelAndView("login");
 	    mav.addObject("message", "Username or Password is wrong!!");
