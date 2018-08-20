@@ -19,7 +19,7 @@ import com.jda.user.service.UserService;
 public class LoginController {
 	
 	 @Autowired
-	  UserService userService;
+	  private UserService userService;
 	 final static Logger logger = Logger.getLogger(LoginController.class);
 	
 	  @RequestMapping(value = "/")
@@ -43,6 +43,7 @@ public class LoginController {
 	   			logger.debug("This is debug : **********************" + user);
 	   		}
 	   	 session.setAttribute("name", user.getName());
+	   	 System.out.println(user.getName());
 	    mav = new ModelAndView("redirect:/welcome");
 	    mav = new ModelAndView("welcome");
 	    mav.addObject("name", user.getName());

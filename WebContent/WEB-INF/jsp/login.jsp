@@ -30,6 +30,7 @@
                         <td align="left">
                             <form:button id="login" name="login">Login</form:button>
                         </td>
+                       
                     </tr>
                     <tr></tr>
                     <tr>
@@ -37,6 +38,10 @@
                         <td><a href="register.jsp">Register</a>
                         </td>
                     </tr>
+                    
+                    <td> <a href = "/AppRegistration/forgot">Forgot Password</a> </td>
+                      <td> <a href = "/AppRegistration/reset">Reset Password</a>
+                     </td>
                 </table>
             </form:form>
             <table align="center">

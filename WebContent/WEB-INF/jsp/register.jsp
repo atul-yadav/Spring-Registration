@@ -7,13 +7,13 @@
         </head>
         <body>
             <form id="regForm" modelAttribute="user" action="registerProcess" method="post">
-                <table align="center">
+                <table align="center">a
                     <tr>
                        <td>
                             <label >Username</label>
                         </td> 
                         <td>
-                            <input  name="username" id="username" />
+                            <input  name="username"   id="username" />
                         </td>
                     </tr>
                     <tr>
@@ -21,7 +21,7 @@
                             <label>Password</label>
                         </td>
                         <td>
-                            <input name="password" id="password" />
+                            <input name="password"  type = "password"  id="password" />
                         </td>
                     </tr>
                     <tr>
@@ -29,7 +29,7 @@
                             <label>Name</label>
                         </td>
                         <td>
-                            <input name="name" id="name" />
+                            <input name="name"  id="name" />
                         </td>
                     </tr>
                
@@ -39,7 +39,7 @@
                             <label>Mobile</label>
                         </td>
                         <td>
-                            <input name="mobile" id="mobile" />
+                            <input name="mobile"   id="mobile" />
                         </td>
                     </tr>
                     <tr>

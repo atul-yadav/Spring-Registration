@@ -1,3 +1,4 @@
+
 package com.jda.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,21 +36,19 @@ public class RegistrationController {
   
   
 }
-  
   /*
-  
+  public UserValidation userValidator;
   @RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
-  public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
-  @ModelAttribute("user") User user) {
-		 // @ModelAttribute("user") User user,BindingResult result) {
-	  userService.register(user);
-	 
-	  validator.validate(user, result);
-		 if(result.hasErrors()){
-			 return new ModelAndView("register"); 
-		 }
-		 
-  return new ModelAndView("welcome", "name", user.getName());
+  public ModelAndView  addUser(HttpServletRequest request, HttpServletResponse response,
+  @ModelAttribute("user") User user, BindingResult result) throws IOException {
+	  
+	  userValidator.validate(user, result);
+	  if(result.hasErrors()){
+		  return new ModelAndView("register");
+	  }
+  userService.register(user);
+  //response.sendRedirect("login");
+  return new ModelAndView("redirect:/login");
   }
   */
   

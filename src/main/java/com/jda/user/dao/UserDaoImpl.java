@@ -17,15 +17,30 @@ public class UserDaoImpl implements UserDao {
   @Autowired
   JdbcTemplate jdbcTemplate;
   public void register(User user) {
-    String sql = "insert into user values(?,?,?,?)";
+    String sql = "insert into user values(?,?,?,?,?)";
     jdbcTemplate.update(sql, new Object[] { user.getName(),user.getUsername(), user.getPassword(), 
-   user.getMobile()});
+   user.getMobile(),"abc"});
     }
     public User validateUser(Login login) {
     String sql = "select * from user  where username='" + login.getUsername() + "' and password='" + login.getPassword()
     + "'";
     List<User> users = jdbcTemplate.query(sql, new UserMapper());
     return users.size() > 0 ? users.get(0) : null;
+    }
+    
+    public User  validateUserName(String  username)
+    {
+   	 String sql = "select * from user where username ='"+username+"'" ;
+   	 List<User> users = jdbcTemplate.query(sql, new UserMapper());
+       return users.size() > 0 ? users.get(0) : null;
+		
+    }
+    
+    public void saveToken(String token, String username)
+    {
+   	 String sql = "update user set token = '"+token+"'  where username = '"+username+"'";
+   	 jdbcTemplate.execute(sql);
+   	 
     }
 	
   class UserMapper implements RowMapper<User> {
@@ -39,6 +54,7 @@ public class UserDaoImpl implements UserDao {
     
    
     user.setMobile(rs.getString("mobile"));
+    user.setToken(rs.getString("token"));
     return user;
   }
 }
