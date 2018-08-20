@@ -8,6 +8,8 @@ public interface UserDao {
 	  User validateUser(Login login);
 	  User validateUserName(String username);
 	  void saveToken(String token, String username);
+	  User getUserbyToken(String token) ;
+	  void newPassword(String password,String token);
 	}
 
 

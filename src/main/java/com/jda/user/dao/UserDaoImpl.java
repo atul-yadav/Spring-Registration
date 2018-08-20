@@ -42,6 +42,16 @@ public class UserDaoImpl implements UserDao {
    	 jdbcTemplate.execute(sql);
    	 
     }
+    public User getUserbyToken(String token) {
+	 	   String sql = "select * from user where token='" + token 
+	 	    + "'";
+	 	    List<User> users = jdbcTemplate.query(sql, new UserMapper());
+	 	    return users.size() > 0 ? users.get(0) : null;
+	 	    }
+	   public void newPassword(String password,String token) {
+	   	String sql="update user set password='"+password +"'  where token='"+token+"'";
+			jdbcTemplate.update(sql);
+		}
 	
   class UserMapper implements RowMapper<User> {
   public User mapRow(ResultSet rs, int arg1) throws SQLException {

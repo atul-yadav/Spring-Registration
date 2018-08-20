@@ -40,7 +40,7 @@
                     </tr>
                     
                     <td> <a href = "/AppRegistration/forgot">Forgot Password</a> </td>
-                      <td> <a href = "/AppRegistration/reset">Reset Password</a>
+                      
                      </td>
                 </table>
             </form:form>
