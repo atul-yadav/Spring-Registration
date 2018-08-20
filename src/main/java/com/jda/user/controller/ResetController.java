@@ -51,7 +51,7 @@ public class ResetController {
 		String token = requestParams.get("resetToken");
 		ModelAndView mav = null;
 		 userDao.newPassword(password, token);
-		mav= new ModelAndView("redirect:/login");
+		mav= new ModelAndView("redirect:/");
 		return mav;
 	 
 }
