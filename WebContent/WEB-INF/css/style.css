@@ -1,0 +1,20 @@
+form {
+		border: solid blue;
+		padding: 100px;
+}
+
+label {
+		color: deeppink;
+}
+
+input {
+		margin: 10px;
+}
+
+body {
+		width: 600px;
+		background-color:green;
+}
+td {
+   border: 1px blue;
+}

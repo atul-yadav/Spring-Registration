@@ -33,18 +33,21 @@
         <property name="url" value="jdbc:mysql://10.0.0.160/db1000122" />
         <property name="username" value="u1000122" />
         <property name="password" value="gxVmK7li2j" />
+        
         <!--  
   		 <property name="initialSize" value="20" />
    		<property name="maxActive" value="30" />
-   		-->
+   		
         
 
-    </bean>
-    <!--
+   
+   
     <bean id="user" class="com.jda.dao.UserDaoImpl">
     <property name="dataSource" ref="datasource"/>
+    
  </bean>
-	-->
+ -->
+	 </bean>
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="datasource" />
@@ -85,6 +88,16 @@
 	<constructor-arg name="strength" value="11" />
   </bean>
 
+<!--  
+<mvc:resources mapping="/css/**" location="/css/"  
+	cache-period="31556926"/>
+	-->
+ 
+ 	
+
+<mvc:resources mapping="/css/**" location="/WEB-INF/css/"  cache-period="31556926"> </mvc:resources>
+<mvc:annotation-driven></mvc:annotation-driven>
+	</beans> 
+
 
 	
-</beans>
