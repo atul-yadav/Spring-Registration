@@ -39,9 +39,12 @@
                         </td>
                     </tr>
                     
+                    
                     <td> <a href = "/AppRegistration/forgot">Forgot Password</a> </td>
+                   
                       
                      </td>
+                     -->
                 </table>
             </form:form>
             <table align="center">

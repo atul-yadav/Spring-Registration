@@ -4,8 +4,10 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" />
 	<mvc:annotation-driven />
 	
 	<!-- 
@@ -26,14 +28,27 @@
         <property name="dataSource" ref="datasource" />
     </bean>
     
-    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://10.0.0.160/db1000122" />
         <property name="username" value="u1000122" />
         <property name="password" value="gxVmK7li2j" />
+        <!--  
+  		 <property name="initialSize" value="20" />
+   		<property name="maxActive" value="30" />
+   		-->
+        
+
     </bean>
-	
-	
+    <!--
+    <bean id="user" class="com.jda.dao.UserDaoImpl">
+    <property name="dataSource" ref="datasource"/>
+ </bean>
+	-->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource" />
+	</bean>
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -62,9 +77,14 @@
             </props>
             </property>
         </bean>
+        
        
-	
-	
+
+ <bean id="encoder" 
+	class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	<constructor-arg name="strength" value="11" />
+  </bean>
+
 
 	
 </beans>

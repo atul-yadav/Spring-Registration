@@ -9,7 +9,12 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	public UserDao userDao;
 
-	public void register(User user) {
+	public void register(User user) 
+	{
+		User fromDB = userDao.findUserByEmail(user.getUsername());
+		if(fromDB != null){
+			
+		}
 		userDao.register(user);
 	}
 
